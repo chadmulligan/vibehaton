@@ -140,7 +140,11 @@ const ro = new ResizeObserver(() => {
 ro.observe(canvas);
 
 img.onload = () => {
-  resize();
+  if (W && H) {
+    init();
+  } else {
+    resize();
+  }
   if (!started) {
     started = true;
     requestAnimationFrame(animate);
